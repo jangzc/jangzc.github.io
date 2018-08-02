@@ -140,7 +140,7 @@ public boolean removeAll(T data){
 ```
 
 * indexOf(T data)实现分析<br>
-要根据data在顺序表中查找第一个出现的数据元素的下标，只需要通过对比数据项是否相等，相等则返回下标，不相等则返回-1, indexOf和lastIndexOf方法实现如下：
+要根据data在顺序表中查找第一个出现的数据元素的下标，只需要通过对比数据项是否相等，相等则返回下标，不相等则返回-1, indexOf和lastIndexOf方法实现如下:
 ```
 public int indexOf(T data){
     if(data!=null){
