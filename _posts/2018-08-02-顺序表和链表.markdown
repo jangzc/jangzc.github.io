@@ -25,7 +25,7 @@ tags:
 线性表的顺序存储结构称之为顺序表(Sequential List), 它使用一维数据依次存放从a<sub>0</sub>到a<sub>n-1</sub>的数据元素(a<sub>0</sub>,a<sub>1</sub>,...,a<sub>n-1</sub>, 将a<sub>i</sub>(0<i<n-1)存放在数组的第i个元素，使得a<sub>i</sub>与其前驱a<sub>i-1</sub>及后继a<sub>i+1</sub>的存储位置相邻，因此数据元素在内存的物理存储次序反映了线性表数据元素之间的逻辑顺序
  
 ## 2.2 顺序存储结构的实现
-* get(int index)实现分析 
+* get(int index)实现分析<br>
   从顺序表中获取值是一种相当简单的操作并且效率很高，这是由于顺序表内部采用了数组作为存储数据的容器。因此只要根据传递的索引值，然后直接获取数组中对应的下标的值即可，代码如下：
 ```
 public T get(int index){
@@ -35,7 +35,7 @@ public T get(int index){
 }
 ```
 
-* set(int index, T data)实现分析
+* set(int index, T data)实现分析<br>
   在顺序表中替换值也是非常高效和简单的，只要根据传递的索引值index找到需要替换的元素，然后把对应元素替换成传递的data值即可，代码如下：
 ```
 public T set(int index, T data) {
@@ -48,7 +48,7 @@ public T set(int index, T data) {
 }
 ```
 
-* add(int index, T data)实现分析
+* add(int index, T data)实现分析<br>
   在顺序表中执行插入操作时，如果其内部数组的容量尚未达到最大值时，可以归结为两种情况，一种是在头部插入或者中间插入，这种情况下需要移动数组中的数据元素，效率较低，另一种是在尾部插入，无需移动数组中的元素，效率高。但是当顺序表内部数组的容量已经达到最大值无法插入时，则需要申请另一个更大容量的数组并复制全部数组元素到新的数组，这样的时间和空间开销是比较大的，也就导致了效率更为糟糕了。因此在插入频繁的场景下，顺序表的插入操作并不是理想的选择。
 ```
 public boolean add(int index, T data){
@@ -92,4 +92,79 @@ public boolean add(int index, T data){
     //插入成功
     return true;
 }
+```
+
+* remove(int index)实现分析<br>
+  顺序表的删除操作和之前的插入操作情况是类似的，如果是在中间或者头部删除顺序表中的元素，那么在删除位置之后的元素都必须依次往前移动，效率较低，如果是在顺序表的尾部直接删除的话，则无需移动元素，此情况下删除效率高。代码实现如下：
+```
+public T remove(int index){
+    if(this.length!=0 && index>=0 && index<this.length){
+        //记录删除元素的值并返回
+        T old = (T)this.table[index];
+        
+        //从被删除的元素位置开始，其后的元素都依次往前移动
+        for(int j=index; j<this.length-1;j++){
+            this.table[j] = this.table[j+1];
+        }
+        
+        //设置数组元素对象为空
+        this.table[this.length-1] = null;
+        
+        //顺序表长度减1
+        this.length--;
+        return old;
+    }
+    return null;
+}
+```
+
+* removeAll(T data)实现分析<br>
+在顺序表中根据数据data找到需要删除的数据元素和前面分析的根据index删除顺序表中的数据元素是一样的道理，因此我们只要通过比较找到与data相等的数据元素并获取其下标，然后调用前面实现的remove(int index)方法来移除即可。代码实现如下：
+```
+public boolean removeAll(T data){
+    boolean done=false;
+    if(this.length!=0 && data!=null){
+        int i=0;
+        while(i<this.length){
+            //找出数据相同的选项
+            if(data.equals(this.table[i])){
+                this.remove(i);//根据下标删除
+                done = true;
+            }
+            else
+                i++; //继续查找
+        }
+    }
+    return done;
+}
+```
+
+* indexOf(T data)实现分析<br>
+要根据data在顺序表中查找第一个出现的数据元素的下标，只需要通过对比数据项是否相等，相等则返回下标，不相等则返回-1, indexOf和lastIndexOf方法实现如下：
+```
+public int indexOf(T data){
+    if(data!=null){
+        for(int i=0; i<this.length; i++) {
+            //相当则返回下标
+            if(this.table[i].equals(data))
+                return i;
+        }
+    }
+    return -1;
+}
+
+//根据data查询最后一个出现在顺序表中的下标
+public int lastIndexOf(T data){
+    if(data!=null){
+        for(int i=this.length-1; i>=0; i--)
+            if(data.equals(this.table[i]))
+                return i;
+    }
+    return -1;
+}
+```
+
+以上便是顺序表的主要操作方法，当然顺序表中还可以实现其他操作，例如在初始化构造函数时传入数组来整体初始化顺序表、比较两个顺序表是否相等、是否包含某个数据等。以下是传入数据构建顺序表的方法实现：
+```
+
 ```
