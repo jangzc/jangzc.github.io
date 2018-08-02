@@ -26,8 +26,7 @@ tags:
  
 ## 2.2 顺序存储结构的实现
 * get(int index)实现分析 
-
-从顺序表中获取值是一种相当简单的操作并且效率很高，这是由于顺序表内部采用了数组作为存储数据的容器。因此只要根据传递的索引值，然后直接获取数组中对应的下标的值即可，代码如下：
+  从顺序表中获取值是一种相当简单的操作并且效率很高，这是由于顺序表内部采用了数组作为存储数据的容器。因此只要根据传递的索引值，然后直接获取数组中对应的下标的值即可，代码如下：
 ```
 public T get(int index){
     if (index>=0 && index<this.length)
@@ -35,9 +34,9 @@ public T get(int index){
     return null;
 }
 ```
-* set(int index, T data)实现分析
 
-在顺序表中替换值也是非常高效和简单的，只要根据传递的索引值index找到需要替换的元素，然后把对应元素替换成传递的data值即可，代码如下：
+* set(int index, T data)实现分析
+  在顺序表中替换值也是非常高效和简单的，只要根据传递的索引值index找到需要替换的元素，然后把对应元素替换成传递的data值即可，代码如下：
 ```
 public T set(int index, T data) {
     if (index > 0 && index < this.length && data != null) {
@@ -46,5 +45,51 @@ public T set(int index, T data) {
         return old;
     }
     return null;
+}
+```
+
+* add(int index, T data)实现分析
+  在顺序表中执行插入操作时，如果其内部数组的容量尚未达到最大值时，可以归结为两种情况，一种是在头部插入或者中间插入，这种情况下需要移动数组中的数据元素，效率较低，另一种是在尾部插入，无需移动数组中的元素，效率高。但是当顺序表内部数组的容量已经达到最大值无法插入时，则需要申请另一个更大容量的数组并复制全部数组元素到新的数组，这样的时间和空间开销是比较大的，也就导致了效率更为糟糕了。因此在插入频繁的场景下，顺序表的插入操作并不是理想的选择。
+```
+public boolean add(int index, T data){
+    if(data == null)
+        return false;
+    
+    //插入下标的容错判断，插入在最前面
+    if(index<0)
+        index=0;
+    
+    //插入下标的容错判断，插入在最后面
+    if(index>this.length)
+        index = this.length;
+    
+    //判断数组是否已满
+    if(this.length==table.length){
+        //把原数组赋值给临时数组
+        Object[] temp = this.table;
+        
+        //对原来的数组进行成倍的扩容，并把原数组的元素复制到新数组
+        this.table = new Object[temp.length*2];
+        
+        //先把原数组下标从0到index-1(即插入位置的前一个位置)复制到新数组
+        for (int i=0; i<index; i++){
+            this.table[i] = temp[i]
+        }
+    }
+    
+    //从原数组的最后一个元素开始直到index位置，都往后一个位置
+    //最终腾出来的位置就是插入元素的位置了
+    for (int j=this.length-1; j>=index; j--){
+        this.table[j + 1] = this.table[j];
+    }
+    
+    //插入新值
+    this.table[index] = data;
+    
+    //长度加一
+    this.length++;
+    
+    //插入成功
+    return true;
 }
 ```
