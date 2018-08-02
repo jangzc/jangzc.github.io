@@ -24,4 +24,27 @@ tags:
 顺序表的定义：
 线性表的顺序存储结构称之为顺序表(Sequential List), 它使用一维数据依次存放从a<sub>0</sub>到a<sub>n-1</sub>的数据元素(a<sub>0</sub>,a<sub>1</sub>,...,a<sub>n-1</sub>, 将a<sub>i</sub>(0<i<n-1)存放在数组的第i个元素，使得a<sub>i</sub>与其前驱a<sub>i-1</sub>及后继a<sub>i+1</sub>的存储位置相邻，因此数据元素在内存的物理存储次序反映了线性表数据元素之间的逻辑顺序
  
- ## 2.2 顺序存储结构的实现
+## 2.2 顺序存储结构的实现
+* get(int index)实现分析 
+
+从顺序表中获取值是一种相当简单的操作并且效率很高，这是由于顺序表内部采用了数组作为存储数据的容器。因此只要根据传递的索引值，然后直接获取数组中对应的下标的值即可，代码如下：
+```
+public T get(int index){
+    if (index>=0 && index<this.length)
+        return (T) this.table[index];
+    return null;
+}
+```
+* set(int index, T data)实现分析
+
+在顺序表中替换值也是非常高效和简单的，只要根据传递的索引值index找到需要替换的元素，然后把对应元素替换成传递的data值即可，代码如下：
+```
+public T set(int index, T data) {
+    if (index > 0 && index < this.length && data != null) {
+        T old = (T) this.table[index];
+        this.table[index] = data;
+        return old;
+    }
+    return null;
+}
+```
