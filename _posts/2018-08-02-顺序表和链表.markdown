@@ -153,7 +153,6 @@ public int indexOf(T data){
     return -1;
 }
 
-//根据data查询最后一个出现在顺序表中的下标
 public int lastIndexOf(T data){
     if(data!=null){
         for(int i=this.length-1; i>=0; i--)
@@ -164,7 +163,4 @@ public int lastIndexOf(T data){
 }
 ```
 
-以上便是顺序表的主要操作方法，当然顺序表中还可以实现其他操作，例如在初始化构造函数时传入数组来整体初始化顺序表、比较两个顺序表是否相等、是否包含某个数据等。以下是传入数据构建顺序表的方法实现：
-```
 
-```
