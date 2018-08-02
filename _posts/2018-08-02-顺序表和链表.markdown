@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      Java数据结构与算法之顺序表和链表
-subtitle:   顺序表
+title:      Java数据结构与算法(一)
+subtitle:   顺序表与链表
 date:       2018-08-02
 author:     Jang
 header-img: img/post-bg-debug.png
