@@ -22,3 +22,7 @@ tags:
 在2007年，数个分布式的双重支付防范方法被提出<br>
 于2009年开始运作的加密货币比特币使用了工作量证明来避免受信任第三方的需求。交易被记录于公开的区块链上，防止任何人双重支付，除非企图攻击者能控制全网络超过50%的运算能力<br>
 在2018年5月，有恶意矿工通过至少51%的全网算力，对当时的全球第26大加密货币比特币黄金(Bitcoin Gold)进行双花攻击(双重支付)，造成了千万美元的损失。此次攻击引起了一些对于去中心化以及工作量证明机制的质疑。
+
+# Double-spending<br>
+Double-spending is a potential flaw in digital cash scheme in which the same single digital token can be spent more than once. This is possible because a digital token consists of a digital file that can be duplicated or falsified. As with counterfeit money, such double-spending leads to infilation by creating a new amount of fraudulent currency that did not previously exist. This devalues the currency relative to other monetary units, and disminished user trust as well as the circulation adn retantion of the currency. Fundametal cyptogrhic techniques to prevent double-spending while preserving anonymity in a trasaction are blind signatures and particalaly in offline systems, secrect splitting.<br>
+
