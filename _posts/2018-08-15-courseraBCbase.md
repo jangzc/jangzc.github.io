@@ -36,3 +36,20 @@ Significant innovations such as smart contracts have opened up boarder applicati
 In a **Private Blockchain**, access to the Blockchain is limited to selected participants.
 
 **Permissioned or Consortium Blockchain** has the benenits of a public blockchain with allowing only users with "permission" to collaborate and transact.
+
+### Week Two: Ethereum Blockchain<br>
+Smart contracts add a layer logic and computation to the trust infrastructure supported by the blockchain.
+
+Smart contracts allow for execution of code, enhacing the basic value transfer capability of the Bitcion Blockchain.
+
+**Solidity** is the high level programming language code for writing smart contracts that run on EVM.
+
+Accounts are basic units of Ethereum protocol: external owned accounts and smart contract accounts.
+
+An Ethereum transaction includes not only fiedls for transfer of Ethers but also for messages for invoking smart contract.
+
+**Externally Owned Accounts**, or EOA, are controlled by private keys.
+
+**Contract Account**, or CA, are controlled by code and can be activated only by an EOA.
+
+An Ethereum block contains the usual prev block hash, nonce, transaction details, but also about gas(fee) limits, the state of the smart contracts and runner-up headers.
