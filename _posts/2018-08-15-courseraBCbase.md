@@ -53,3 +53,13 @@ An Ethereum transaction includes not only fiedls for transfer of Ethers but also
 **Contract Account**, or CA, are controlled by code and can be activated only by an EOA.
 
 An Ethereum block contains the usual prev block hash, nonce, transaction details, but also about gas(fee) limits, the state of the smart contracts and runner-up headers.
+
+**Transaction Validation** involves checking the timestamp and nonce combination to be valid, and the availiablity of sufficent fees for execution.
+
+**Miner Nodes** in the network receive, verify, gather and execute transactions.
+
+Any transaction in Ethereum, including transfer of Ethers, requires fees or gas points to be specifiled in the transaction.
+
+**Gas Points** are used to specify the fees instead of Ether for ease of comparison using standard values
+
+Miners are paid fees for security, validation, execution of smart contrac as well as for creation of blocks
