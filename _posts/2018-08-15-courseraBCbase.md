@@ -63,3 +63,21 @@ Any transaction in Ethereum, including transfer of Ethers, requires fees or gas 
 **Gas Points** are used to specify the fees instead of Ether for ease of comparison using standard values
 
 Miners are paid fees for security, validation, execution of smart contrac as well as for creation of blocks
+
+### Week Three: Algorithms and Techniques<br>
+
+**Elliptic Curve Crypography(ECC)** family of algorithms is used in Bitcoin as well as Ethereum Blockchain for generateing the key pair.
+
+**Rivest-Shamir-Adelman(RAS)** is a commonly used implementation of public-private key in many applications, except Blockchains because of its need for a more efficent and stronger algorithm.
+
+**Hashing** transforms and maps an arbitrary length of input data value to a unique fixed length value.
+
+The following are two basic requirements of a hash function.
+* make certain that one cannot derive the original items hashed from the hash value
+* make sure that the hash value uniquely represents the original items hashed
+
+A combination of hashing and encryption are used for securing the various elements of the blockchain. Private-public pair and hashing are important foundation concepts in decentralized networks that operate beyond the trust boundary.
+
+**Asymmetric crypography** uses public-private key pairs to encrypt and decrypt data.
+
+### Week Four: Essentials of Trust
