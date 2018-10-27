@@ -13,7 +13,7 @@ tags:
 ---
 
 # 1. What I'm building?
-* Build chart <span style="color:bule;font-style:italic">A</span>
+* Build chart <span style="color:bule;font-weight:bold">A</span>
 * Build chart A again
 * Build chart A but make it look different(Style/layout)
 * Build chart A but add functionality B
