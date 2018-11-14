@@ -31,3 +31,14 @@ curl http://x:xxx@ip:port/
 ```
 curl http://x:xxx@ip:port/wallet/
 ```
+
+# User Case
+## 1. Create Wallet -> Create Account -> Geneate Address(?)
+
+## 2. Send btcoin from A to B
+
+## 3. Delete Account
+
+## 4. Delete Wallet
+
+## 5. Query Balance, etc
