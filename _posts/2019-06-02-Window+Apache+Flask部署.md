@@ -17,8 +17,54 @@ https://www.apachelounge.com/download/
 ## 2. 第二步：安裝mod_wsgi
 https://www.lfd.uci.edu/~gohlke/pythonlibs/#pil
 注意apache版本中的vc号，py版本号需要与mod_wsgi对应
+httpd.conf里添加内容:
+```
+LoadFile "D:/devtools/Anaconda2/envs/FPN_TF/python36.dll"
+LoadModule wsgi_module "D:/devtools/Anaconda2/envs/FPN_TF/Lib/site-packages/mod_wsgi/server/mod_wsgi.cp36-win_amd64.pyd"
+WSGIPythonHome "D:/devtools/Anaconda2/envs/FPN_TF/python"
+```
+## 3. 第三步：安裝flask
+```
+pip install falsk
+```
 
-
+## 4. 第四步:测试文件
+```
+et_test.py
+from flask import *
+app=Flask(__name__)
+@app.route('/')
+def index():
+   return "eating test~~~"
+if __name__ == '__main__':
+   app.run()
+```
+```
+et_test.wsgi
+import sys, os
+sys.path.insert(0, os.path.dirname(__file__))
+from et_test import app
+application = app
+```
+httpd.conf添加：
+```
+<VirtualHost *:80>
+ DocumentRoot "C:\et_test"
+  ServerName localhost
+   <Directory "C:\et_test">
+    Order allow,deny
+    Allow from all
+   </Directory>
+  WSGIScriptAlias /et_web C:\et_test\et_test.wsgi
+</VirtualHost>
+```
+并且注释以下内容:
+```
+<Directory />
+  # AllowOverride none
+  # Require all denied
+</Directory>
+```
 
 
 ## 2. 期间遇到的问题
