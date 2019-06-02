@@ -92,7 +92,7 @@ LoadModule authz_host_module modules/mod_authz_host.so
 如果使用的是anaconda的虚拟环境，需要把对应的环境变量切换成这个虚拟环境里的路径
 
 ### 2.4 python环境变量，path和pythonpath的使用
-1. 系统python可以正常运行，conda可以运行，activate可以运行
+1. 系统python可以正常运行，conda可以运行，activate可以运行，http启动失败
 ```
 Path=D:\devtools\Anaconda2\Scripts\;D:\devtools\Anaconda2\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;%JAVA_HOME%/bin;%JAVA_HOME%/jre/bin;D:\Program Files\TortoiseSVN\bin;D:\Program Files\VisualSVN Server\bin;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Git\cmd
 无PYTHONPATH
@@ -101,4 +101,9 @@ Path=D:\devtools\Anaconda2\Scripts\;D:\devtools\Anaconda2\;C:\Program Files (x86
 2. 系统python可正常运行(运行的其实是FPN_TF里的python)，conda不可以运行,activateb不可正常运行，http服务可以启动
 Path=D:\devtools\Anaconda2\envs\FPN_TF\Scripts\;D:\devtools\Anaconda2\envs\FPN_TF\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;%JAVA_HOME%/bin;%JAVA_HOME%/jre/bin;D:\Program Files\TortoiseSVN\bin;D:\Program Files\VisualSVN Server\bin;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Git\cmd
 PYTHONPATH=D:\devtools\Anaconda2\envs\FPN_TF\DLLs\;D:\devtools\Anaconda2\envs\FPN_TF\Lib\;D:\devtools\Anaconda2\envs\FPN_TF\Lib\site-packages\;
+```
+```
+3. 先设置path
+Path=D:\devtools\Anaconda2\envs\FPN_TF\Scripts\;D:\devtools\Anaconda2\envs\FPN_TF\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;%JAVA_HOME%/bin;%JAVA_HOME%/jre/bin;D:\Program Files\TortoiseSVN\bin;D:\Program Files\VisualSVN Server\bin;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Git\cmd
+这样可以
 ```
