@@ -17,11 +17,15 @@ https://www.apachelounge.com/download/
 ## 2. 第二步：安裝mod_wsgi
 https://www.lfd.uci.edu/~gohlke/pythonlibs/#pil
 注意apache版本中的vc号，py版本号需要与mod_wsgi对应
+```
+>> pip install "mod_wsgi-4.6.5+ap24vc14-cp36-cp36m-win_amd64.whl"
+>> mod_wsgi-express module-config
+```
 httpd.conf里添加内容:
 ```
 LoadFile "D:/devtools/Anaconda2/envs/FPN_TF/python36.dll"
 LoadModule wsgi_module "D:/devtools/Anaconda2/envs/FPN_TF/Lib/site-packages/mod_wsgi/server/mod_wsgi.cp36-win_amd64.pyd"
-WSGIPythonHome "D:/devtools/Anaconda2/envs/FPN_TF/python"
+WSGIPythonHome "D:/devtools/Anaconda2/envs/FPN_TF"
 ```
 ## 3. 第三步：安裝flask
 ```
@@ -105,5 +109,5 @@ PYTHONPATH=D:\devtools\Anaconda2\envs\FPN_TF\DLLs\;D:\devtools\Anaconda2\envs\FP
 ```
 3. 先设置path
 Path=D:\devtools\Anaconda2\envs\FPN_TF\Scripts\;D:\devtools\Anaconda2\envs\FPN_TF\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;%JAVA_HOME%/bin;%JAVA_HOME%/jre/bin;D:\Program Files\TortoiseSVN\bin;D:\Program Files\VisualSVN Server\bin;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Git\cmd
-这样可以
+activate切换到FPN_TF，启动httpd
 ```
