@@ -62,6 +62,20 @@ httpd.conf添加：
   WSGIScriptAlias /et_web C:\et_test\et_test.wsgi
 </VirtualHost>
 ```
+实例apache2.4
+```
+<VirtualHost *>
+# DocumentRoot "D:\19\SemiconductorImageVideoAIAnalysis\AVIPJT\ConnectionPro\srcgit\19SESS_AVI_Service\Server_Service"
+  ServerName localhost
+   <Directory D:\19\SemiconductorImageVideoAIAnalysis\AVIPJT\ConnectionPro\srcgit\19SESS_AVI_Service\Server_Service>
+	#Order allow,deny
+    #Allow from all
+	Require all granted
+   </Directory>
+  WSGIScriptAlias / D:\19\SemiconductorImageVideoAIAnalysis\AVIPJT\ConnectionPro\srcgit\19SESS_AVI_Service\Server_Service\aviint.wsgi
+</VirtualHost>
+```
+
 并且注释以下内容:
 ```
 <Directory />
@@ -111,3 +125,10 @@ PYTHONPATH=D:\devtools\Anaconda2\envs\FPN_TF\DLLs\;D:\devtools\Anaconda2\envs\FP
 Path=D:\devtools\Anaconda2\envs\FPN_TF\Scripts\;D:\devtools\Anaconda2\envs\FPN_TF\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;%JAVA_HOME%/bin;%JAVA_HOME%/jre/bin;D:\Program Files\TortoiseSVN\bin;D:\Program Files\VisualSVN Server\bin;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Git\cmd
 activate切换到FPN_TF，启动httpd
 ```
+
+
+### 2.5 c++http客户端访问server的差异
+1. 单独启动Flask：客户端，Postman,浏览器都正常
+2. 启动Flask+Apache：客户端不正常(408Timeout), Postman,浏览器正常
+解决方案：
+客户端的请求header中，添加Host字段
